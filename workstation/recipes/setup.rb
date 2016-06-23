@@ -1,7 +1,3 @@
-package 'cowsay' do
-        action :install
-end
-
 package 'tree' do
         action :install
 end
@@ -11,5 +7,11 @@ package 'git' do
 end
 
 file '/etc/motd' do
-     content 'Property of ...'
+     content "Property of ...
+
+IP : #{node['ipaddress']}
+HOSTNAME : #{node['hostname']}
+MEMORY :  #{node['memory']['total']}
+CPU :  #{node['cpu']['0']['mhz']}
+"
 end
